@@ -1,4 +1,4 @@
-'use strict'
+﻿'use strict'
 //imports 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -17,7 +17,11 @@ app.engine('.hbs', hbs({
 app.set('view engine','.hbs')
 /* app.set('views', './vistas')
 app.set('default', './vistas/layouts')  posterior corrección*/
-
+const cors = require('cors')
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
 //integra las rutas?
 app.use('/api',router)
 
